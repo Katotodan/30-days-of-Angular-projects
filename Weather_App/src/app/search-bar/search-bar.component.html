@@ -1,0 +1,4 @@
+<form (submit)="$event.preventDefault(); onSubmit()">
+    <input type="text" placeholder="Enter location" name="town"  [(ngModel)] = "townName">
+    <button type="submit">Search</button>
+</form>

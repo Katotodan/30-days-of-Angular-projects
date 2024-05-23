@@ -1,0 +1,16 @@
+<div *ngIf="isDataFetch">
+    <h3>{{weatherText}}</h3>
+    <img [src]="imgUrl" alt="Weather image">
+
+    <h3>City Name: <span>{{town}}</span></h3>
+    <p>"region": {{region}}</p>
+    <P>"country": {{country}}</P>
+    <p>Temperature <span>{{temperature}}*C</span></p>
+    <p>Latitude: {{lat}}</p>
+    <p>Longitude: {{lon}}</p>       
+
+</div>
+
+<p *ngIf="isLoading">Fetching ....</p>
+
+<p *ngIf="townNotFound">{{townName}} not found!!!</p>

@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>To Do App</h2>
+    <form [formGroup]="formData" (submit)="addToList()">
+        <div>
+            <label for="task">Enter task name</label> <br><br>
+            <input id="task" type="text" formControlName="taskName">
+        </div><br>
+        <button type="submit">Add</button>
+    </form><br>
+
+    <table class="table" *ngIf="taskArray.length > 0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Task name</th>
+            <th>Done</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of taskArray; index as i">
+            <th>{{i+1}}</th>
+            <td>{{task.taskName}}</td>
+            <td>
+                <input type="checkbox" (change)="onChecked(i)" [checked]="task.taskStatus">
+            </td>
+            <td>
+                <!-- <button type="button" (click)="rename(i)">Rename</button> -->
+                <button type="button" (click)="deleteTask(i)">Delete</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+</div>
