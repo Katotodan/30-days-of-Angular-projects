@@ -1,0 +1,4 @@
+<select name="select" id="" [(ngModel)]="selectedValue" (change)="selectChange($event)">
+    <option value="null"></option>
+    <option *ngFor="let opt of options" [value]="opt">{{opt}}</option>
+</select>

@@ -1,0 +1,24 @@
+<h2>Currency converter</h2>
+<div>
+  <label for="">Select first Currency <br>
+    <app-select (currency)="saveCurrencyOne($event)"></app-select>
+  </label>
+</div>
+<br>
+<div>
+  <label for="">Enter amount <br>
+    <input type="number" #firstAmount [defaultValue]="0">
+  </label>
+</div>
+
+<br>
+<div>
+  <label for="">Select select Currency <br>
+    <app-select (currency)="saveCurrencyTwo($event)"></app-select>
+  </label>
+</div>
+
+<br><br>
+<div *ngIf="isLoading">Loading ....</div>
+<div *ngIf="convertedValue">{{firstAmount.value}} {{firstCurrency}} is equal to {{convertedValue}} {{secondCurrency}}</div><br>
+<button (click)="convert(firstAmount.value)">Convert</button>
