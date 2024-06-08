@@ -1,0 +1,12 @@
+.cell-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 10rem;
+}
+
+.cell{
+    width: 4rem;
+    height: 4rem;
+    background-color: #eef;
+    margin: 0.2rem;
+}

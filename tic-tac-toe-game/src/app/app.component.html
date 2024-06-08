@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="cell-container" >
+    <div *ngFor="let cell of iterateValue; let i = index" class="cell" 
+    (click)="!isDisabled && cellClicked(i)"  [ngStyle]="{'pointer-events': isDisabled ? 'none' : 'auto'}">
+      {{cell}}
+    </div>
+  </div>
+  <div *ngIf="game_over">
+    Game over
+    <span *ngIf="tieGame">Tie game</span>
+    <span *ngIf="!tieGame">{{currentPlayer}} win the game</span><br>
+    <button (click)="restart()">Restart</button>
+  </div>
+</div>
+
