@@ -1,0 +1,10 @@
+<main>
+  <img src="foodImg.jpg" alt="" class="background_img">
+  <section class="first_section">
+    <h2 class="text-center py-3 text-white text-3xl">Recipe app</h2>
+    <nav-bar (category)="categorySelected($event)" (recipeName)="nameSelected($event)"></nav-bar>
+  </section>
+  <section>
+    <all-recipe [category]="category" [searchName]="searchName"></all-recipe>
+  </section>
+</main>

@@ -1,0 +1,8 @@
+<section>
+    <div *ngFor="let recipe of recipeData" class="img_container">
+        <img [src]="recipe.strCategoryThumb ? recipe.strCategoryThumb : recipe.strMealThumb" alt="">
+        <p>{{recipe.strCategory ? recipe.strCategory : recipe.strMeal}}</p>
+
+        <a href="">More</a>
+    </div>
+</section>

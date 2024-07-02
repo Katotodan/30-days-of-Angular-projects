@@ -1,0 +1,22 @@
+section{
+    margin: 0 auto;
+    margin-top: 2rem;
+    background-color: rgba(33, 150, 243, 0.5);
+    min-height: 70vh;
+    max-height: auto;
+    color: white;
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    gap: 1rem;
+}
+
+.img_container{
+    padding: 0.5rem;
+    border: 2px solid black;
+
+}
+.img_container img{
+    height: 80%;
+}
