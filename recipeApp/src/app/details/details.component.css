@@ -1,0 +1,20 @@
+.recipe_name{
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+.recipe_img{
+    width: 50%;
+    margin: 0 auto;
+}
+.recipe_info{
+    margin: 1rem 2rem;
+    font-size: 1.2rem;
+}
+
+.ingredient{
+    margin: 1rem 2rem;
+}
+/* .ingredient h2{
+    font-size: 1.2rem;
+} */

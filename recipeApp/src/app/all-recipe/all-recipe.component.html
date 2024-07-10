@@ -1,8 +1,14 @@
 <section>
-    <div *ngFor="let recipe of recipeData" class="img_container">
-        <img [src]="recipe.strCategoryThumb ? recipe.strCategoryThumb : recipe.strMealThumb" alt="">
-        <p>{{recipe.strCategory ? recipe.strCategory : recipe.strMeal}}</p>
+    <p *ngIf="isLoading" class="text-center text-3xl">Loading ...</p>
+    <div *ngIf="!isLoading" class="div-container">
+        <div *ngFor="let recipe of recipeData" class="img_container">
+            <img [src]="recipe.strCategoryThumb ? recipe.strCategoryThumb : recipe.strMealThumb" alt="">
+            
+            <p>{{recipe.strCategory && recipe.strCategory }}</p>
+            <p>{{recipe.strMeal && recipe.strMeal}}</p>
 
-        <a href="">More</a>
+            <a [routerLink]="['/details', recipe.idMeal]" r class="text-2xl">More</a>
+        </div>
     </div>
-</section>
+    
+</section> 

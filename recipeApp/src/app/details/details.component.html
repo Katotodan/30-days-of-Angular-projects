@@ -1,0 +1,27 @@
+
+<main *ngIf="isLoading">loading ...</main>
+<main *ngIf="!isLoading">
+    <h1 *ngIf="recipeInfo.strMeal" class="recipe_name">{{recipeInfo.strMeal}}</h1>
+    <img [src]="recipeInfo.strMealThumb" alt="" class="recipe_img">
+
+    <div class="recipe_info">
+        <p>Meal category: {{recipeInfo.strCategory}}</p>
+        <p>Meal Area: {{recipeInfo.strArea}}</p>
+    </div>
+    <div class="ingredient">
+        <h1>Ingredients</h1>
+        <span *ngFor="let ingredient of ingredients">{{ingredient}} |</span>
+    </div>
+    
+    <div class="instraction">
+        <h2>Instruction</h2>
+        {{recipeInfo.strInstructions}}
+    </div>
+    
+    <div>
+        <a [href]="recipeInfo.strYoutube" target="_blank">View it on youtube</a>
+    </div>
+
+</main>
+
+

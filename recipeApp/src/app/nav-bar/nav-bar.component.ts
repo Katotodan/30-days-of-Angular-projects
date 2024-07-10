@@ -16,11 +16,13 @@ export class NavBarComponent {
   @Output() category = new EventEmitter<string>()
   @Output() recipeName = new EventEmitter<string>()
 
+  recipe = ""
   onCategory(value:string){
     this.category.emit(value)
+    this.recipe = ""
   }
-  searchByName(name:string){
-    this.recipeName.emit(name)
+  searchByName(){
+    this.recipeName.emit(this.recipe)
   }
 
 }

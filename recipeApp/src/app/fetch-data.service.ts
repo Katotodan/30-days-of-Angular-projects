@@ -10,12 +10,15 @@ export class FetchDataService {
   constructor(private http: HttpClient) { }
 
   getRandomRecipe(): Observable<any>{
-    return this.http.get<any>('http://www.themealdb.com/api/json/v1/1/categories.php')
+    return this.http.get<any>('http://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
   }
   getRecipeByCategory(category:string): Observable<any>{
     return this.http.get<any>('http://www.themealdb.com/api/json/v1/1/filter.php?c='+ category)
   }
   getRecipeByName(name:string): Observable<any>{
     return this.http.get<any>('http://www.themealdb.com/api/json/v1/1/search.php?s='+ name)
+  }
+  getRecipeById(id:number): Observable<any>{
+    return this.http.get<any>('http://www.themealdb.com/api/json/v1/1/lookup.php?i=' + id)
   }
 }

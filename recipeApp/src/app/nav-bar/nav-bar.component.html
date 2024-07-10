@@ -1,14 +1,15 @@
 <nav class="flex flex-col gap-2 justify-center items-center">
-    <form action="" class="my-3 w-4/5" (submit)="$event.preventDefault(); searchByName(recipename.value)">
-        <input type="text" class="inline-block w-4/5 p-2 border" placeholder="Search recipe" #recipename>
+    <form action="" class="my-3 w-4/5" (submit)="$event.preventDefault(); searchByName()">
+        <input type="text" class="inline-block w-4/5 p-2 border" placeholder="Search recipe"  
+        [(ngModel)] = "recipe" name="recipe">
         <button class="inline-block text-center p-2 bg-slate-500 w-1/5" type="submit">Search</button>
     </form>
 
-    <div class="flex gap-2 bg-slate-300 w-4/5 p-2 justify-between bg-opacity-50 gap ">
-        <span (click)="onCategory('Dessert')">Dessert</span>
-        <span (click)="onCategory('Seafood')">Seafood</span>
-        <span (click)="onCategory('Starter')">Starter</span>
-        <span (click)="onCategory('Vegetarian')">Vegetarian</span>
-        <span (click)="onCategory('Beef')">Beef</span>
+    <div class="flex bg-slate-300 w-4/5 justify-between bg-opacity-50 gap ">
+        <span (click)="onCategory('Dessert')" class="category">Dessert</span>
+        <span (click)="onCategory('Seafood')" class="category">Seafood</span>
+        <span (click)="onCategory('Starter')" class="category">Starter</span>
+        <span (click)="onCategory('Vegetarian')" class="category">Vegetarian</span>
+        <span (click)="onCategory('Beef')" class="category">Beef</span>
     </div>
 </nav>
