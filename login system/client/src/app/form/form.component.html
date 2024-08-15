@@ -1,0 +1,15 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    {{message}}
+    <div>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" 
+        required autoFocus formControlName="username"/>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" name="password" 
+        type="password" required formControlName="password"/>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">{{text}}</button>
+</form>
+
