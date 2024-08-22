@@ -14,12 +14,7 @@ router.post('/login/password', passport.authenticate('local', {
 router.get("/login", (req, res,next) =>{
     res.status(401).json({"success": "fail", "message": "Log in fails, check your username or password"})
 })
-router.post('/logout', function(req, res, next) {
-    req.logout(function(err) {
-      if (err) { return next(err); }
-      res.redirect('/');
-    });
-})
+
 
 // Checking user middleware
 const checkUser = (req, res, next)=>{
@@ -58,10 +53,13 @@ router.post('/signup', async function(req, res, next) {
     
 })
 
-router.post('/logout', function(req, res, next) {
+router.post('/logout', function(req, res, next) {    
     req.logout(function(err) {
       if (err) { return next(err); }
-      res.redirect('/login');
+      res.status(200).json({
+        "success" : true, 
+        "message": "log out successed"
+      });
     });
 })
 

@@ -1,1 +1,11 @@
-<p>home works!</p>
+<nav>
+    <div>
+        <img src="favicon.ico" alt="">
+    </div>
+    <button type="button" (click)="logOut()">Log out</button>
+</nav>
+
+<h1>
+    Welcome 
+    <span *ngIf="user">{{user.username}}</span>
+</h1>

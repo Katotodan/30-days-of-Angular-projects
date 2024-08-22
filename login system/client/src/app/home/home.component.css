@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    background-color: aliceblue;
+    height: 5rem;
+    padding: 1rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+}
+nav button{
+    height: 2rem;
+    width: 5rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+h1{
+    text-align: center;
+}

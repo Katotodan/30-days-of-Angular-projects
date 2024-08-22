@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from '../form/form.component';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,18 +16,20 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   message:string = ""
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   login(e:object){
     console.log("Login");
     
     this.authService.login(e).subscribe({
       next: (response) => {
-        
-        // Handle the response as needed 
+        // Navigate to home page
+        this.router.navigate(["/"]) 
       },
       error: (error) => {
         console.log("error occure");
+        console.log(error.message);
+        
         
         this.message = error.message
         setTimeout(() => {
