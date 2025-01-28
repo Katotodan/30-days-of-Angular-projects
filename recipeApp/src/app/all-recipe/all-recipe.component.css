@@ -1,13 +1,13 @@
 section{
     margin: 0 auto;
     margin-top: 2rem;
-    background-color: rgba(33, 150, 243, 0.5);
-    min-height: 70vh;
+    background-color: rgba(26, 43, 56, 0.9);
+    min-height: 60vh;
     max-height: auto;
     color: white;
     width: 80%;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     padding: 10px;
     gap: 1rem;
 }
@@ -19,8 +19,39 @@ section{
 .img_container{
     padding: 0.5rem;
     border: 2px solid black;
-
+    margin: 0 auto;
 }
 .img_container img{
     height: 80%;
+}
+
+@media screen and (max-width: 1024px) {
+    section{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    section{
+        margin-top: 1rem;
+        width: 100%;
+        padding: 5px;
+        overflow-x: hidden;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .recipe-name{
+        display: -webkit-box;        /* Creates a flexible box */
+        width: 100%;
+        box-orient: vertical;
+        -webkit-box-orient: vertical; /* Sets the box orientation to vertical */
+        overflow: hidden;            /* Hides overflowing text */
+        text-overflow: ellipsis;     /* Adds the ellipsis */
+        line-clamp: 1;
+        -webkit-line-clamp: 1; 
+    }
+    .img_container p, .img_container a{
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+    }
 }

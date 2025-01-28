@@ -24,21 +24,28 @@ export class DetailsComponent {
   recipeInfo: any | undefined;
   ingredients: string[] = []
   isLoading: boolean = true
+  errorMessage:string = ""
 
   constructor(private fetchData: FetchDataService){
     this.recipeId = Number(this.route.snapshot.params['id'])
   }
 
   ngOnInit(): void {
-    this.fetchData.getRecipeById(this.recipeId).subscribe(res=> {
-      this.recipeInfo = res["meals"][0] 
-      for(const key in this.recipeInfo){
-        if(key.includes("strIngredient") && this.recipeInfo[key]){
-          this.ingredients.push(this.recipeInfo[key])
-        }
-      } 
-      this.isLoading = false
-                 
+    this.fetchData.getRecipeById(this.recipeId).subscribe(
+    {
+      next: (res) => {
+        this.recipeInfo = res["meals"][0] 
+        for(const key in this.recipeInfo){
+          if(key.includes("strIngredient") && this.recipeInfo[key]){
+            this.ingredients.push(this.recipeInfo[key])
+          }
+        } 
+        this.isLoading = false            
+      },
+      error: (err) => {
+        this.isLoading = false 
+        this.errorMessage = err.message
+      },
     })   
   }
 

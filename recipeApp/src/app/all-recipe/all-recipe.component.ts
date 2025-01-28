@@ -22,15 +22,20 @@ export class AllRecipeComponent {
   @Input() searchName!: string
   recipeData: any[]= []
   isLoading = false
+  errorMessage = ""
+
   constructor(private dataService: FetchDataService){}
 
   ngOnInit(): void {
     this.isLoading = true
-    this.dataService.getRandomRecipe().subscribe(res=> {
-      this.recipeData = res["meals"]   
-      this.isLoading = false
-      console.log(res );
-         
+    this.errorMessage = ""
+    this.dataService.getRandomRecipe().subscribe( 
+    {
+      next: (res) => {
+        this.recipeData = res["meals"]   
+        this.isLoading = false           
+      },
+      error: (err) => (this.errorMessage = err.message),
     }) 
   }
 
@@ -38,24 +43,34 @@ export class AllRecipeComponent {
 
     for (const inputName in changes) {
       const inputValues = changes[inputName];
+      
       if(inputName === "category" && this.category){
         this.isLoading = true
-        this.dataService.getRecipeByCategory(inputValues.currentValue).subscribe(res =>{
-          this.recipeData = res["meals"]
-          this.isLoading = false
-          console.log(res["meals"]);
-          
-          
+        this.errorMessage = ""
+        this.dataService.getRecipeByCategory(inputValues.currentValue).subscribe(
+        {
+          next: (res) => {
+            this.recipeData = res["meals"]
+            this.isLoading = false               
+          },
+          error: (err) => (this.errorMessage = err.message),
         })
       }else{
         // Search by name
         if(this.searchName){
           this.isLoading = true
-          this.dataService.getRecipeByName(inputValues.currentValue).subscribe(res =>{
-            this.recipeData = res["meals"]
-            this.isLoading = false
-            console.log(res["meals"]);
-            
+          this.errorMessage = ""
+          this.dataService.getRecipeByName(inputValues.currentValue).subscribe(
+          {
+            next: (res) => {
+              this.recipeData = res["meals"]
+              this.isLoading = false                 
+            },
+            error: (err) => {
+              this.isLoading = false
+              this.errorMessage = err.message
+              
+            },
           })  
         }
         

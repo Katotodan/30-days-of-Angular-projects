@@ -1,6 +1,6 @@
 
 <main *ngIf="isLoading">loading ...</main>
-<main *ngIf="!isLoading">
+<main *ngIf="!isLoading && errorMessage === ''">
     <h1 *ngIf="recipeInfo.strMeal" class="recipe_name">{{recipeInfo.strMeal}}</h1>
     <img [src]="recipeInfo.strMealThumb" alt="" class="recipe_img">
 
@@ -9,7 +9,7 @@
         <p>Meal Area: {{recipeInfo.strArea}}</p>
     </div>
     <div class="ingredient">
-        <h1>Ingredients</h1>
+        <h2>Ingredients</h2>
         <span *ngFor="let ingredient of ingredients">{{ingredient}} |</span>
     </div>
     
@@ -22,6 +22,15 @@
         <a [href]="recipeInfo.strYoutube" target="_blank">View it on youtube</a>
     </div>
 
-</main>
+</main> 
+<div *ngIf="errorMessage">{{errorMessage}}</div>
+<section>
+    <a [routerLink]="['/']" class="text-2xlinline-block bg-slate-500 py-2 px-3 rounded">
+        Back
+    </a>
+</section>
+
+<!-- Workion on optimazing photos -->
+
 
 

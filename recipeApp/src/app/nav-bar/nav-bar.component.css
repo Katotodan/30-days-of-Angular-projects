@@ -9,3 +9,45 @@
 .category:hover{
     background-color: bisque;
 }
+.select-container{
+    display: none;
+}
+.search-icon{
+    display: none;
+}
+.search{
+    display: inline-block;
+}
+form input{
+    border: 0;
+    outline: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    div, form{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .select-container{
+        display: block;
+    }
+    .category-container{
+        display: none;
+    }
+    .search{
+        display: none;
+    }
+    .search-icon{
+        display: inline-block;
+        vertical-align: bottom;
+        border-radius: 0 5px 5px 0;
+    }
+    .mat-icon{
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+}
+

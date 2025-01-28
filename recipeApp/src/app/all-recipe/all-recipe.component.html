@@ -1,14 +1,26 @@
-<section>
-    <p *ngIf="isLoading" class="text-center text-3xl">Loading ...</p>
-    <div *ngIf="!isLoading" class="div-container">
+<section class="relative">
+    <p *ngIf="isLoading && errorMessage == ''" class="text-center text-3xl">Loading ...</p>
+    <div *ngIf="!isLoading && errorMessage == ''" class="div-container">
         <div *ngFor="let recipe of recipeData" class="img_container">
-            <img [src]="recipe.strCategoryThumb ? recipe.strCategoryThumb : recipe.strMealThumb" alt="">
-            
-            <p>{{recipe.strCategory && recipe.strCategory }}</p>
-            <p>{{recipe.strMeal && recipe.strMeal}}</p>
+            <img [src]="recipe.strCategoryThumb ? recipe.strCategoryThumb : recipe.strMealThumb" alt=""
+            class="mb-1">
+            <p *ngIf="!recipe.strMeal && recipe.strCategory" class="recipe-name">
+                {{ recipe.strCategory.length > 25 ? recipe.strCategory.slice(0,25) + "..." :  recipe.strCategory}}
+            </p>
+            <p *ngIf="recipe.strMeal" class="recipe-name">
+                {{ recipe.strMeal.length > 25 ? recipe.strMeal.slice(0,25) + "..." :  recipe.strMeal}}
+            </p>
 
-            <a [routerLink]="['/details', recipe.idMeal]" r class="text-2xl">More</a>
+            <a [routerLink]="['/details', recipe.idMeal]" class="text-2xl text-blue-500 underline">
+                More
+            </a>
         </div>
+         
+    </div>
+
+
+    <div *ngIf="errorMessage" class="text-center w-full text-white  block absolute top-4">
+        {{errorMessage}}
     </div>
     
 </section> 

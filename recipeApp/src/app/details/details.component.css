@@ -1,6 +1,9 @@
+main, section{
+    padding: 1rem 2rem;
+}
 .recipe_name{
     text-align: center;
-    margin: 1rem 0;
+    margin-bottom: 0.5rem;
     font-size: 1.5rem;
 }
 .recipe_img{
@@ -8,13 +11,27 @@
     margin: 0 auto;
 }
 .recipe_info{
-    margin: 1rem 2rem;
+    margin: 1rem 0;
     font-size: 1.2rem;
 }
 
 .ingredient{
-    margin: 1rem 2rem;
+    margin: 1rem 0;
 }
-/* .ingredient h2{
-    font-size: 1.2rem;
-} */
+@media screen and (max-width: 950px) {
+    .recipe_img{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 600px) {
+    main, section{
+        padding: 0.5rem 1rem;
+    }
+    .recipe_img{
+        width: 100%;
+    }
+    h2{
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}
