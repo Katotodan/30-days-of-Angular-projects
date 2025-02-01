@@ -18,6 +18,7 @@ main, section{
 .ingredient{
     margin: 1rem 0;
 }
+
 @media screen and (max-width: 950px) {
     .recipe_img{
         width: 70%;

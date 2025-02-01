@@ -9,6 +9,9 @@
 .category:hover{
     background-color: bisque;
 }
+.active{
+    background-color: rgb(238, 174, 96);
+}
 .select-container{
     display: none;
 }

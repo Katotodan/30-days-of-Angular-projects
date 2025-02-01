@@ -7,13 +7,13 @@
             <mat-icon class="mat-icon">find_replace</mat-icon> 
         </button>
     </form>
-
+  
     <div class="flex bg-slate-300 w-4/5 justify-between bg-opacity-50 gap category-container">
-        <span (click)="onCategory('Dessert')" class="category">Dessert</span>
-        <span (click)="onCategory('Seafood')" class="category">Seafood</span>
-        <span (click)="onCategory('Starter')" class="category">Starter</span>
-        <span (click)="onCategory('Vegetarian')" class="category">Vegetarian</span>
-        <span (click)="onCategory('Beef')" class="category">Beef</span>
+        <span (click)="onCategory($event, 'Dessert')" #category class="category">Dessert</span>
+        <span (click)="onCategory($event, 'Seafood')" #category class="category">Seafood</span>
+        <span (click)="onCategory($event, 'Starter')" #category class="category">Starter</span>
+        <span (click)="onCategory($event, 'Vegetarian')" #category class="category">Vegetarian</span>
+        <span (click)="onCategory($event, 'Beef')" #category class="category">Beef</span>
     </div>
     <div class="select-container">
         <label for="category">Search by category</label>

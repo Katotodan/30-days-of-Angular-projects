@@ -22,9 +22,19 @@ section{
     margin: 0 auto;
 }
 .img_container img{
-    height: 80%;
+    min-height: 80%;
+    min-width: 250px;
 }
-
+button{
+    display: block;
+    background-color: rgb(122, 122, 216);
+    margin: 0 auto ;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
 @media screen and (max-width: 1024px) {
     section{
         width: 90%;

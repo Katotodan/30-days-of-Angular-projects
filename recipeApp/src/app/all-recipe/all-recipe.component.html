@@ -14,13 +14,17 @@
             <a [routerLink]="['/details', recipe.idMeal]" class="text-2xl text-blue-500 underline">
                 More
             </a>
-        </div>
+        </div> 
+        
          
     </div>
-
-
+    
     <div *ngIf="errorMessage" class="text-center w-full text-white  block absolute top-4">
         {{errorMessage}}
     </div>
     
 </section> 
+<button *ngIf="displayViewMore && !isLoading && errorMessage == ''" (click)="addingRecipe()">
+    View more
+</button><br>
+
